@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_plus,SIGNAL(released()),this,SLOT(binary_pressed()));
     connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_pressed()));
     connect(ui->pushButton_multiply,SIGNAL(released()),this,SLOT(binary_pressed()));
+    connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_pressed()));
 }
 
 MainWindow::~MainWindow()
@@ -59,6 +60,9 @@ void MainWindow::binary_pressed()
     else if (button->text() == "x") {
         operation = MULTIPLY;
     }
+    else if (button->text() == "/") {
+        operation = DIVIDE;
+    }
 
     ui->label->setText("");
 }
@@ -94,6 +98,9 @@ void MainWindow::on_pushButton_equals_pressed()
             break;
         case MULTIPLY:
             result = firstNum * secondNum;
+            break;
+        case DIVIDE:
+            result = firstNum / secondNum;
             break;
         case NONE:
             return;

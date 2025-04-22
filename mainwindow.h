@@ -17,7 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    enum Operation{ NONE, ADD, SUBTRACT, MULTIPLY};
+    enum Operation{ NONE, ADD, SUBTRACT, MULTIPLY, DIVIDE};
     Operation operation = NONE;
     double firstNum = 0.0;
 
